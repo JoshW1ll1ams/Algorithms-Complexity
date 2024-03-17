@@ -1,0 +1,8 @@
+C:\Users\jlw19\Desktop\Algorithms-Complexity\SearchandSort\SearchandSort\bin\Debug\SearchandSort.exe.config
+C:\Users\jlw19\Desktop\Algorithms-Complexity\SearchandSort\SearchandSort\bin\Debug\SearchandSort.exe
+C:\Users\jlw19\Desktop\Algorithms-Complexity\SearchandSort\SearchandSort\bin\Debug\SearchandSort.pdb
+C:\Users\jlw19\Desktop\Algorithms-Complexity\SearchandSort\SearchandSort\obj\Debug\SearchandSort.csproj.AssemblyReference.cache
+C:\Users\jlw19\Desktop\Algorithms-Complexity\SearchandSort\SearchandSort\obj\Debug\SearchandSort.csproj.SuggestedBindingRedirects.cache
+C:\Users\jlw19\Desktop\Algorithms-Complexity\SearchandSort\SearchandSort\obj\Debug\SearchandSort.csproj.CoreCompileInputs.cache
+C:\Users\jlw19\Desktop\Algorithms-Complexity\SearchandSort\SearchandSort\obj\Debug\SearchandSort.exe
+C:\Users\jlw19\Desktop\Algorithms-Complexity\SearchandSort\SearchandSort\obj\Debug\SearchandSort.pdb
