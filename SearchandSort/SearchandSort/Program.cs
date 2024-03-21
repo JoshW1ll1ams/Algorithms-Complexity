@@ -21,12 +21,12 @@ namespace SearchandSort
 
 
             // Create a GetTextFileData to hold the data of all our text files
-            GetTextFileData[] FileDataArray = new GetTextFileData[6];
+            TextFileData[] FileDataArray = new TextFileData[6];
 
             // Iterate our file names and create a new file data for each also checking all data returned is valid 
             for (int i = 0; i < FileName.Length; i++)
             {
-                GetTextFileData FileData = GetNumberArrayForFile(FileName[i]);
+                TextFileData FileData = GetNumberArrayForFile(FileName[i]);
 
                 if (FileData.DataError)
                 {
@@ -39,39 +39,122 @@ namespace SearchandSort
                 }
             }
 
-            // Initial 3 array search and sort pick
-            // Get userinput for the pick of the first 3 arrays, minus 1 to allow for array index starting at 0 
-            int ArrayToSort = GetUserInitialArrayPick() - 1;
+            // Change to true to run testing version of program 
+            bool Testing = false;
 
-            // Call our MainSearchAndSortLoop with value true to print 10th values
-            MainSearchAndSortLoop(FileDataArray[ArrayToSort].NumberArray, true);
+            if(Testing)
+            {
+                // Initial 3 array search and sort pick
+                // Get userinput for the pick of the first 3 arrays, minus 1 to allow for array index starting at 0 
+                int ArrayToSort = GetUserInitialArrayPick() - 1;
 
-            // Further 3 array search and sort pick
-            // Get userinput for the pick of the further 3 arrays, add two to position the user pick correctly within the array index
-            int FurtherArrayToSort = GetUserFurtherArrayPick() + 2;
-            // Call our MainSearchAndSortLoop with value false to print 50th values
-            MainSearchAndSortLoop(FileDataArray[FurtherArrayToSort].NumberArray, false);
+                // Call our MainSearchAndSortLoop with value true to print 10th values
+                TestingMainSearchAndSortLoop(FileDataArray[ArrayToSort].NumberArray, true);
+
+                // Further 3 array search and sort pick
+                // Get userinput for the pick of the further 3 arrays, add two to position the user pick correctly within the array index
+                int FurtherArrayToSort = GetUserFurtherArrayPick() + 2;
+                // Call our MainSearchAndSortLoop with value false to print 50th values
+                TestingMainSearchAndSortLoop(FileDataArray[FurtherArrayToSort].NumberArray, false);
 
 
-            // Merged Net_1_256 and Net_3_256 search and sort
-            Console.WriteLine("Now we will check the results of merged array for files Net_1_256 and Net_3_256, press enter to continue...");
-            Console.ReadLine();
-            // Merge the below arrays then proform the MainSearchAndSortLoop on it printing every 50th value
-            int[] Merged_Net_1_256_Net_3_256 = FileDataArray[0].NumberArray.Concat(FileDataArray[1].NumberArray).ToArray();
-            MainSearchAndSortLoop(Merged_Net_1_256_Net_3_256, false);
+                // Merged Net_1_256 and Net_3_256 search and sort
+                Console.WriteLine("Now we will check the results of merged array for files Net_1_256 and Net_3_256, press enter to continue...");
+                Console.ReadLine();
+                // Merge the below arrays then proform the MainSearchAndSortLoop on it printing every 50th value
+                int[] Merged_Net_1_256_Net_3_256 = FileDataArray[0].NumberArray.Concat(FileDataArray[1].NumberArray).ToArray();
+                TestingMainSearchAndSortLoop(Merged_Net_1_256_Net_3_256, false);
 
-            // Merged Net_1_2048, Net_2_2048 and Net_3_2048 search and sort
-            Console.WriteLine("Now we will check the sorted array for files Net_1_2048, Net_2_2048 and Net_3_2048, press enter to continue...");
-            Console.ReadLine();
+                // Merged Net_1_2048, Net_2_2048 and Net_3_2048 search and sort
+                Console.WriteLine("Now we will check the sorted array for files Net_1_2048, Net_2_2048 and Net_3_2048, press enter to continue...");
+                Console.ReadLine();
 
-            // Merge the below arrays then proform the MainSearchAndSortLoop on it printing every 50th value
-            int[] Merged_2048LengthFiles = FileDataArray[3].NumberArray.Concat(FileDataArray[4].NumberArray).Concat(FileDataArray[5].NumberArray).ToArray();
-            MainSearchAndSortLoop(Merged_2048LengthFiles, false);
+                // Merge the below arrays then proform the MainSearchAndSortLoop on it printing every 50th value
+                int[] Merged_2048LengthFiles = FileDataArray[3].NumberArray.Concat(FileDataArray[4].NumberArray).Concat(FileDataArray[5].NumberArray).ToArray();
+                TestingMainSearchAndSortLoop(Merged_2048LengthFiles, false);
 
-            Console.ReadLine();
+                Console.ReadLine();
+            }
+            else
+            {
+                // Initial 3 array search and sort pick
+                // Get userinput for the pick of the first 3 arrays, minus 1 to allow for array index starting at 0 
+                int ArrayToSort = GetUserInitialArrayPick() - 1;
+
+                // Call our MainSearchAndSortLoop with value true to print 10th values
+                MainSearchAndSortLoop(FileDataArray[ArrayToSort].NumberArray, true);
+
+                // Further 3 array search and sort pick
+                // Get userinput for the pick of the further 3 arrays, add two to position the user pick correctly within the array index
+                int FurtherArrayToSort = GetUserFurtherArrayPick() + 2;
+                // Call our MainSearchAndSortLoop with value false to print 50th values
+                MainSearchAndSortLoop(FileDataArray[FurtherArrayToSort].NumberArray, false);
+
+
+                // Merged Net_1_256 and Net_3_256 search and sort
+                Console.WriteLine("Now we will check the results of merged array for files Net_1_256 and Net_3_256, press enter to continue...");
+                Console.ReadLine();
+                // Merge the below arrays then proform the MainSearchAndSortLoop on it printing every 50th value
+                int[] Merged_Net_1_256_Net_3_256 = FileDataArray[0].NumberArray.Concat(FileDataArray[1].NumberArray).ToArray();
+                MainSearchAndSortLoop(Merged_Net_1_256_Net_3_256, false);
+
+                // Merged Net_1_2048, Net_2_2048 and Net_3_2048 search and sort
+                Console.WriteLine("Now we will check the sorted array for files Net_1_2048, Net_2_2048 and Net_3_2048, press enter to continue...");
+                Console.ReadLine();
+
+                // Merge the below arrays then proform the MainSearchAndSortLoop on it printing every 50th value
+                int[] Merged_2048LengthFiles = FileDataArray[3].NumberArray.Concat(FileDataArray[4].NumberArray).Concat(FileDataArray[5].NumberArray).ToArray();
+                MainSearchAndSortLoop(Merged_2048LengthFiles, false);
+
+                Console.ReadLine();
+            }
+           
         }
 
         static void MainSearchAndSortLoop(int[] ArrayToSort, bool Search10th)
+        {
+            Console.WriteLine("Press enter to sort with quick ascending sort and see results...");
+            Console.ReadLine();
+
+            SortResult QuickSortAscending = QuickSort(ArrayToSort, true);
+            if (Search10th)
+            {
+                PrintIntArrayEvery10thValue(QuickSortAscending.SortedArray);
+            }
+            else
+            {
+                PrintIntArrayEvery50thValue(QuickSortAscending.SortedArray);
+            }
+
+            Console.WriteLine("Press enter to sort with quick descending sort and see results...");
+            Console.ReadLine();
+
+            SortResult QuickSortDescending = QuickSort(ArrayToSort, false);
+            if (Search10th)
+            {
+                PrintIntArrayEvery10thValue(QuickSortDescending.SortedArray);
+            }
+            else
+            {
+                PrintIntArrayEvery50thValue(QuickSortDescending.SortedArray);
+            }
+
+
+            int Target = GetUserTargetNumberPick();
+
+            SearchResult BinarySearchResult = BinarySearch(QuickSortAscending.SortedArray, Target);
+  
+            Console.WriteLine("To see BinarySearchResult press enter..");
+            Console.ReadLine();
+
+            if (!BinarySearchResult.Found)
+            {
+                Console.WriteLine("Target was not found, searching for nearest value..");
+            }
+            LogSearchResult(BinarySearchResult);
+
+        }
+        static void TestingMainSearchAndSortLoop(int[] ArrayToSort, bool Search10th)
         {
             SortResult QuickSortAscending = QuickSort(ArrayToSort, true);
             LogSortResult(QuickSortAscending);
@@ -127,6 +210,20 @@ namespace SearchandSort
             else
             {
                 PrintIntArrayEvery50thValue(MergeSortAscending.SortedArray);
+            }
+
+            SortResult QuickSortDescending = QuickSort(ArrayToSort, false);
+            LogSortResult(QuickSortDescending);
+            Console.WriteLine("Press enter to see every 10th value of the QuickSortDescending array");
+            Console.ReadLine();
+
+            if (Search10th)
+            {
+                PrintIntArrayEvery10thValue(QuickSortDescending.SortedArray);
+            }
+            else
+            {
+                PrintIntArrayEvery50thValue(QuickSortDescending.SortedArray);
             }
 
             SortResult BubbleSortDescending = BubbleSort(ArrayToSort, false);
@@ -411,8 +508,6 @@ namespace SearchandSort
 
             SortResult QuickSortResult = new SortResult();
 
-            QuickSortResult.SortType = "QuickSort Ascending";
-
 
             int[] ArrayToSort = new int[ArrayIn.Length];
             Array.Copy(ArrayIn, ArrayToSort, ArrayIn.Length);
@@ -421,7 +516,19 @@ namespace SearchandSort
             int Steps = 0;
             int ArrayLength = ArrayToSort.Length;
 
-            LocalQuickSort(0, ArrayLength - 1);
+
+
+            if (Ascending)
+            {
+                QuickSortResult.SortType = "QuickSort Ascending";
+                LocalQuickSort(0, ArrayIn.Length - 1);
+            }
+            else
+            {
+                QuickSortResult.SortType = "QuickSort Decending";
+                LocalQuickSortDescending(0, ArrayIn.Length - 1);
+            }
+
 
             void LocalQuickSort(int LeftIndex, int RightIndex)
             {
@@ -482,6 +589,67 @@ namespace SearchandSort
                     }
                 }
             }
+
+            void LocalQuickSortDescending(int LeftIndex, int RightIndex)
+            {
+                if (LeftIndex < RightIndex)
+                {
+                    int pivot = LocalPartitionDescending(ArrayToSort, LeftIndex, RightIndex);
+                    Steps++;
+
+                    if (pivot > 1)
+                    {
+                        LocalQuickSortDescending(LeftIndex, pivot - 1);
+                        Steps++;
+                    }
+                    if (pivot + 1 < RightIndex)
+                    {
+                        LocalQuickSortDescending(pivot + 1, RightIndex);
+                        Steps++;
+                    }
+                }
+            }
+
+            int LocalPartitionDescending(int[] ArrayToSort_, int LeftIndex_, int RightIndex_)
+            {
+                int Pivot = ArrayToSort_[LeftIndex_];
+                Steps++;
+
+                while (true)
+                {
+                    while (ArrayToSort_[LeftIndex_] > Pivot) // Changed comparison to >
+                    {
+                        LeftIndex_++;
+                        Steps++;
+                    }
+
+                    while (ArrayToSort_[RightIndex_] < Pivot) // Changed comparison to <
+                    {
+                        RightIndex_--;
+                        Steps++;
+                    }
+
+                    if (LeftIndex_ < RightIndex_)
+                    {
+                        if (ArrayToSort_[LeftIndex_] == ArrayToSort_[RightIndex_])
+                        {
+                            Steps++;
+                            return RightIndex_;
+                        }
+
+                        int temp = ArrayToSort_[LeftIndex_];
+                        ArrayToSort_[LeftIndex_] = ArrayToSort_[RightIndex_];
+                        ArrayToSort_[RightIndex_] = temp;
+
+                        Steps = Steps + 3;
+                    }
+                    else
+                    {
+                        return RightIndex_;
+                    }
+                }
+            }
+
             QuickSortResult.SortedArray = ArrayToSort;
             QuickSortResult.Steps = Steps;
         
@@ -728,10 +896,10 @@ namespace SearchandSort
         }
 
  
-        static GetTextFileData GetNumberArrayForFile(string FileName) 
+        static TextFileData GetNumberArrayForFile(string FileName) 
         {
      
-            GetTextFileData Result = new GetTextFileData();
+            TextFileData Result = new TextFileData();
 
             string CurrentDirectory = Path.Combine(Environment.CurrentDirectory, "..", "..", "Data");
             string FilePath = Path.Combine(CurrentDirectory, FileName);
@@ -853,7 +1021,7 @@ namespace SearchandSort
     }
 
     // Struct to hold data for a text file data type
-    struct GetTextFileData
+    struct TextFileData
     {
         public int[] NumberArray;
         public bool DataError;
